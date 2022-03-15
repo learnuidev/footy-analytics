@@ -20,9 +20,6 @@ Why?
 - Clojure
 - Datomic
 
-## Resources
--
-
 ### StatsBomb
 - [StatsBomb Intro to Analytics](https://statsbomb-courses.thinkific.com/courses/take/introduction-to-football-analytics)
 - [StatsBomb - Open Data github](https://github.com/statsbomb/open-data)
