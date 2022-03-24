@@ -1,5 +1,5 @@
 {:paths
- ["src/main" "open-data"]
+ ["src/main" "open-data" "kaggle"]
  :deps
  {org.clojure/clojure {:mvn/version "1.10.3"}
   ring/ring {:mvn/version "1.9.4"}
@@ -8,8 +8,10 @@
   metosin/reitit {:mvn/version "0.5.15"}
   clj-http/clj-http {:mvn/version "3.12.3"}
   ovotech/ring-jwt {:mvn/version "2.2.1"}
-  org.clojure/data.json {:mvn/version "2.4.0"}}
-  
+  org.clojure/data.json {:mvn/version "2.4.0"}
+  org.clojure/data.csv {:mvn/version "1.0.0"}
+  scicloj/tablecloth {:mvn/version "6.076"}}
+
 
  :aliases
 

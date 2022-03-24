@@ -1,5 +1,7 @@
 (ns user
-  (:require [clojure.data.json :as json]))
+  (:require [clojure.data.json :as json]
+            [clojure.data.csv :as csv]
+            [clojure.java.io :as io]))
 
 ;; Part 1 - Data Exploring
 ;; ======= 360
@@ -39,3 +41,19 @@
    44.json
      - league: EPL
      - season: 2003/2005")
+
+
+;; ============
+(comment
+ (slurp "kaggle/height_mf_country_2022.csv")
+ (filter #(= "Bhutan" (:country %)) (map 
+                                      (fn [[rank country mh fh mhf fhf]]
+                                        {:rank rank
+                                         :country country
+                                         :male/height {:cm mh
+                                                       :ft mhf}
+                                         :female/height {:cm fh
+                                                         :ft fhf}})
+                                      (rest (with-open [reader (io/reader "kaggle/height_mf_country_2022.csv")]
+                                             (doall
+                                               (csv/read-csv reader)))))))
