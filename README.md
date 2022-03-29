@@ -1,8 +1,6 @@
-# Course: Interactive Applied Football Analytics
+<h1 id="top" align="center"> Interactive Applied Football Analytics using Clojure and Datomic </h1>
+<h3 align="center"> A fully project based course that will educate you in topics such as math, football analytics, critical thinking, programming, immutable database, PLOP and much much more. Created by <a href="https://twitter.com/vishalgautamm">Vishal Gautam</a></h3>  
 
-Hello and welcome to Introduction to Applied Analytics using Clojure and Datomic.
-
-Learn: math, football analytics, critical thinking, programming and much much more
 
 We are going to choose Clojure
 
@@ -20,6 +18,11 @@ Why?
 - Clojure
 - Datomic
 
+## Credits / Resources:
+
 ### StatsBomb
 - [StatsBomb Intro to Analytics](https://statsbomb-courses.thinkific.com/courses/take/introduction-to-football-analytics)
 - [StatsBomb - Open Data github](https://github.com/statsbomb/open-data)
+
+### Edd Webster's football_analytics
+- [football_analytics](https://github.com/eddwebster/football_analytics)
