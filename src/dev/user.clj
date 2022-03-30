@@ -1,7 +1,8 @@
 (ns user
   (:require [clojure.data.json :as json]
             [clojure.data.csv :as csv]
-            [clojure.java.io :as io]))
+            [clojure.java.io :as io]
+            [clerk]))
 
 ;; Part 1 - Data Exploring
 ;; ======= 360
@@ -46,7 +47,7 @@
 ;; ============
 (comment
  (slurp "kaggle/height_mf_country_2022.csv")
- (filter #(= "Bhutan" (:country %)) (map 
+ (filter #(= "Bhutan" (:country %)) (map
                                       (fn [[rank country mh fh mhf fhf]]
                                         {:rank rank
                                          :country country

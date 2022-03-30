@@ -1,2 +1,4 @@
 .cpcache
 .DS_Store
+.lsp
+.clj-kondo
