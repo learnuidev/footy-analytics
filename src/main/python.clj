@@ -7,11 +7,19 @@
   ; (require-python 'mxnet
   ;                 '(mxnet ndarray module io model))
   (require-python 'cv2)
-  (require-python '[numpy :as np]))
-
+  (require-python '[numpy :as np])
+  (require-python '[math :as pmath])
+  (require-python '[matplotlib as mpl])
+  (require-python '[matplotlib.pyplot as plt])
+  (require-python '[scipy :as sp])
+  (require-python '[pandas :as pandas]))
 
 (comment
-  (np/sqrt 100))
+  (pandas/DataFrame []))
+
+(comment
+  (np/sqrt 100)
+  (pmath/cos 1.5699999))
 
 (comment
   (np/ones [1 2]))
