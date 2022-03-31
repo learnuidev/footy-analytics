@@ -12,7 +12,8 @@
                  :key-fn keyword))
 
 (comment
-  (count (find-all-competitions)))
+  (count (find-all-competitions))
+  (first (find-all-competitions)))
 
 
 (comment
@@ -20,3 +21,8 @@
   (clerk/table (find-all-competitions))
   (clerk/show! "notebooks/rule_30.clj")
   (clerk/show! "notebooks/data_science.clj"))
+(clerk/show! "notebooks/clojurefc.clj")
+
+
+(comment
+  (range))

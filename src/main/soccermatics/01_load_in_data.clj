@@ -1,14 +1,19 @@
-(ns competitions
+(ns soccermatics.01-load-in-data
   (:require [clojure.data.json :as json]
             [clojure.data.csv :as csv]
             [clojure.pprint :as pprint]
             [clojure.java.io :as io]))
 
+;; Load in Statsbomb competition, match and season data
+
+;; Questions ===
 ;; 1. Find all competitions
+;; Functions used: json/read-str, slurp, str
 (defn find-all-competitions  []
   (json/read-str (slurp (str "open-data/data/competitions.json"))
                  :key-fn keyword))
 
+;; Count how many data are there
 (comment
   (count (find-all-competitions)))
 
