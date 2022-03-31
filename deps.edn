@@ -14,7 +14,26 @@
   ;; Clerk
   io.github.nextjournal/clerk {:mvn/version "0.5.346"}
   ;; Python in Clojure
-  clj-python/libpython-clj {:mvn/version "2.018"}}
+  clj-python/libpython-clj {:mvn/version "2.018"}
+  ;;
+  ;; input various external data formats
+  com.github.seancorfield/next.jdbc  {:mvn/version "1.2.659"}
+  meta-csv/meta-csv                  {:mvn/version "0.1.0"}
+  org.xerial/sqlite-jdbc             {:mvn/version "3.34.0"}
+  dk.ative/docjure                   {:mvn/version "1.16.0"}
+  clojusc/wordnet                    {:mvn/version "1.2.0"}
+  clj-jgit/clj-jgit                  {:mvn/version "1.0.2"}
+
+  ;; some statistical routines
+  kixi/stats {:mvn/version "0.5.4"}
+
+  ;; SICM utils numerical and physics routines
+  sicmutils/sicmutils {:mvn/version "0.20.1"}
+
+  ;; semantic web goodies and box/arrow graphs
+  jackrusher/mundaneum               {:git/url "https://github.com/jackrusher/mundaneum/"
+                                      :git/sha "84476918ee47b66a2d6128e1a90780e52fd2ae44"}
+  arrowic/arrowic                    {:mvn/version "0.1.1"}}
 
 
  :aliases
