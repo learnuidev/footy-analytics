@@ -2,7 +2,9 @@
   (:require [clojure.data.json :as json]
             [clojure.data.csv :as csv]
             [clojure.java.io :as io]
-            [clerk]))
+            [statsbomb]
+            [clerk]
+            [python]))
 
 ;; Part 1 - Data Exploring
 ;; ======= 360

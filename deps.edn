@@ -19,7 +19,10 @@
 
  :aliases
 
- {:dev {:extra-paths ["src/dev"]
+ {:jdk-17
+  {:jvm-opts ["--add-modules" "jdk.incubator.foreign"
+              "--enable-native-access=ALL-UNNAMED"]}
+  :dev {:extra-paths ["src/dev"]
         :extra-deps {com.datomic/dev-local {:mvn/version "1.0.242"}
                      integrant/repl {:mvn/version "0.3.2"}
                      weavejester/dependency {:mvn/version "0.2.1"}}}

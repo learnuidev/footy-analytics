@@ -29,6 +29,13 @@
   (json/read-str (slurp (str "open-data/data/matches/" competition-id "/" (str season-id ".json")))
                  :key-fn keyword))
 
+;; world cup - 11:18PM 29th march 2022
+;; 43 - competition id
+;; 3 - season id (2018)
+(comment
+ (count (get-match-data 43 3)))
+
+
 (comment
   "2004/2005 - 2008/2009: Data"
   ;; 04/05 - 7 matches
@@ -93,6 +100,7 @@
   (count (get-match-data 11 90)))
 
 
+;; world cup
 ;;
 (def seasons
   {44 03/04

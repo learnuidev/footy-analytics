@@ -26,3 +26,6 @@ Why?
 
 ### Edd Webster's football_analytics
 - [football_analytics](https://github.com/eddwebster/football_analytics)
+
+### Figshare
+- [Soccer match event dataset](https://figshare.com/collections/Soccer_match_event_dataset/4415000/2)
