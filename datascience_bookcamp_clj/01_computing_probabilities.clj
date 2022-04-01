@@ -221,3 +221,57 @@
 
 (comment
   (get-matching-event sample-space head-or-tail?))
+
+;; ##### 1.7 Computing weighted event probabilities
+
+(def result+weighted (for [event-condition [head? tail? head-or-tail? neither?]]
+                       {:matching-event (get-matching-event sample-space event-condition)
+                        :probability (compute-probability sample-space event-condition)
+                        :weighted-probability (compute-probability weighted-sample-space event-condition)}))
+
+;; We can use the `table` function from `clerk` namespace to easily visualize the results.
+;; All we need to do is pass the result as the first argument
+
+(clerk/table result+weighted)
+
+;; > With just a few lines of code, we have constructed a tool for solving many problems in probability. Let’s apply this tool to problems more complex than a simple coin flip.
+
+;; ---
+
+;; ## 1.2 Computing nontrivial probabilities
+
+;; ### 1.2.1 Problem 1: Analyzing a family with four children
+
+;; Suppose a family has four children.
+
+;; > What is the probability that exactly `two` of the children are `boys`?
+
+;; Assumptions
+;; - each child is equally likely to be either a boy or a girl.
+
+;; Thus we can construct an `unweighted sample space` where each outcome represents one possible sequence of four children, as shown below.
+
+;; FIGURE HERE
+
+;; ##### 1.8 Computing the sample space of children
+(def possible-children [:boy :girl])
+
+(def sample-space* (atom []))
+
+(comment
+  (for [child1 possible-children]
+    (for [child2 possible-children]
+      (for [child3 possible-children]
+        (for [child4 possible-children]
+          [child1 child2 child3 child4])))))
+
+(doseq [child1 possible-children]
+  (doseq [child2 possible-children]
+    (doseq [child3 possible-children]
+      (doseq [child4 possible-children]
+        (swap! sample-space* conj [child1 child2 child3 child4])))))
+
+(comment
+  (reset! sample-space* [])
+  (count @sample-space*)
+  (count (filter #(= :boy %) (second @sample-space*))))
