@@ -4,7 +4,8 @@
             [clojure.java.io :as io]
             [statsbomb]
             [clerk]
-            [python]))
+            [python]
+            [bookcamp]))
 
 ;; Part 1 - Data Exploring
 ;; ======= 360

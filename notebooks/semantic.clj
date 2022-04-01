@@ -177,3 +177,9 @@
     (assoc :nextjournal/width :full))
 
 ;; I hope this gives you some ideas about things you might want to try!
+
+(comment
+  (query '[:select ?itemLabel ?influencedByLabel
+                      :where [[?item (wdt :influenced-by) * (entity "Clojure")
+                               _ (wdt :influenced-by) ?influencedBy]
+                              [?influencedBy (wdt :influenced-by) * (entity "Lisp")]]]))
