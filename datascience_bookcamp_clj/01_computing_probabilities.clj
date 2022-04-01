@@ -51,6 +51,9 @@
 
 (def sample-space #{:heads :tails})
 
+(comment
+ (type sample-space))
+
 ; > Storing elements in hashtag curly brackets creates a Clojure set. A Clojure set is a collection of unique, unordered elements.
 
 ; Suppose we choose an element of `sample-space` at random. What fraction of the time will the chosen element equal Heads? Well, our sample space holds two possible elements. Each element occupies an equal fraction of the space within the set.
@@ -110,16 +113,32 @@
 ;; That function is defined below. Its inputs are an event condition and a generic sample space.
 
 ;; The function iterates through the generic sample space using `for comprension macro` and returns the set of outcomes where `event-condition` (outcome) is `true`.
-(defn get-matching-event
+(defn get-matching-event-v1
   [event-condition sample-space]
   (into #{} (for [sample sample-space
                   :when (event-condition sample)]
                 sample)))
 
+(defprotocol IMatchingEvent
+  (get-matching-event [this event-condition]))
+
+(extend-protocol IMatchingEvent
+  clojure.lang.PersistentHashSet
+  (get-matching-event [this event-condition]
+    (get-matching-event-v1 event-condition this))
+  clojure.lang.PersistentArrayMap
+  (get-matching-event [this event-condition]
+    (into #{} (for [[sample val] this
+                    :when (event-condition sample)]
+                  sample))))
+
+(comment
+  (get-matching-event sample-space head-or-tail?))
+
 ;; Let’s execute `get-matching-event` on our four event conditions. Then we’ll output the four extracted events.
 
 (for [event-condition [head? tail? head-or-tail? neither?]]
- (get-matching-event event-condition sample-space))
+ (get-matching-event sample-space event-condition))
 
 ;; We’ve successfully extracted four events from sample_space.
 
@@ -131,9 +150,36 @@
 
 ; ---
 ; ##### 1.5 Computing event probabilities
-(defn compute-probability [event-condition sample-space]
-  (let [event (get-matching-event event-condition sample-space)]
+(defn compute-probability-v1 [sample-space event-condition]
+  (let [event (get-matching-event sample-space event-condition)]
     (/ (count event) (count sample-space))))
+
+(defprotocol IComputeProbability
+  (compute-probability [this condition]))
+
+(extend-protocol IComputeProbability
+   clojure.lang.PersistentHashSet
+   (compute-probability [this condition]
+     (compute-probability-v1 this condition))
+   clojure.lang.PersistentArrayMap
+   (compute-probability [this condition]
+     (let [event (get-matching-event sample-space condition)
+           event-size (apply + (map #(get weighted-sample-space %) event))]
+        (/ event-size (apply + (vals weighted-sample-space))))))
+
+
+(comment
+  (compute-probability sample-space head?)
+  (compute-probability sample-space tail?)
+  (compute-probability sample-space head-or-tail?)
+  (compute-probability sample-space neither?)
+
+  (compute-probability weighted-sample-space head?)
+  (compute-probability weighted-sample-space tail?)
+  (compute-probability weighted-sample-space head-or-tail?)
+  (compute-probability weighted-sample-space neither?))
+
+
 
 ;; The `compute-probability` function:
 ;; 1. identifies the event associated with an inputted event condition using `get-matching-event` function
@@ -141,8 +187,8 @@
 
 ;; Its time to test our function we wil save it in result var
 (def result (for [event-condition [head? tail? head-or-tail? neither?]]
-              {:matching-event (get-matching-event event-condition sample-space)
-               :probability (compute-probability event-condition sample-space)}))
+              {:matching-event (get-matching-event sample-space event-condition)
+               :probability (compute-probability sample-space event-condition)}))
 
 ;; We can use the `table` function from `clerk` namespace to easily visualize the results.
 ;; All we need to do is pass the result as the first argument
@@ -165,7 +211,13 @@
 
 (def weighted-sample-space {:heads 4 :tails 1})
 
-;; Our new sample space is stored in a map. This allows us to redefine the size of the sample space as the sum of all map weights. Within `weighted-sample-space`, that sum will equal 5.
+;; Our new sample space is stored in a map.
+
+;; `get-matching-event` is defined for both `set` and `map` type. so we are extending existed type with a new function - polymorphism FTW. Thus, it will work as expected on our map input.
+
+(def weighted-event (get-matching-event weighted-sample-space head-or-tail?))
+
+(= 5 (apply + (map #(get weighted-sample-space %) weighted-event)))
+
 (comment
-  (get-matching-event head-or-tail? weighted-sample-space)
-  (get-matching-event head-or-tail? sample-space))
+  (get-matching-event sample-space head-or-tail?))
