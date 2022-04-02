@@ -1,6 +1,5 @@
-;; # Welcome to Clojure FC
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
-(ns clojurefc
+(ns notebooks.clojurefc
   (:require [clojure.string :as str]
             [clojure.set :refer [join rename-keys project]]
             [meta-csv.core :as csv]

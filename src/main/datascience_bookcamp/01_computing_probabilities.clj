@@ -1,5 +1,5 @@
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
-(ns datascience-bookcamp-clj.01-computing-probabilities
+(ns datascience-bookcamp.01-computing-probabilities
   (:require [clojure.data.json :as json]
             [clojure.data.csv :as csv]
             [clojure.pprint :as pprint]

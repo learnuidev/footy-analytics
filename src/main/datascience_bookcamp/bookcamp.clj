@@ -1,4 +1,4 @@
-(ns bookcamp
+(ns datascience-bookcamp.bookcamp
   (:require [clojure.data.json :as json]
             [clojure.data.csv :as csv]
             [clojure.pprint :as pprint]
@@ -7,8 +7,8 @@
 
 (comment
  (clerk/serve! {:browse? true})
- (clerk/show! "datascience_bookcamp_clj/01_computing_probabilities.clj"))
+ (clerk/show! "src/main/datascience_bookcamp/01_computing_probabilities.clj"))
 
 (comment
  (clerk/show! "notebooks/semantic.clj")
- (clerk/show! "src/main/parens_for_plot.clj"))
+ (clerk/show! "src/main/gigasquid/parens_for_plot.clj"))

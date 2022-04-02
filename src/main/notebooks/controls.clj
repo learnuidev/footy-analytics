@@ -1,6 +1,6 @@
 ;; # Controls! 🎛
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
-(ns controls
+(ns notebooks.controls
   (:require [clojure.string :as str]
             [nextjournal.clerk :as clerk]))
 

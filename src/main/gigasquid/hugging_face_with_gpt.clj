@@ -1,5 +1,5 @@
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
-(ns hugging-face-with-gpt
+(ns gigasquid.hugging-face-with-gpt
   (:require [libpython-clj2.require :refer [require-python]]
             [libpython-clj2.python  :as py]
             [tech.v3.datatype :as dtype]
@@ -85,4 +85,4 @@
 (comment
   (clerk/serve! {:browse? true}))
 
-(clerk/show! "src/main/hugging_face_with_gpt.clj")
+(clerk/show! "src/main/gigasquid/hugging_face_with_gpt.clj")

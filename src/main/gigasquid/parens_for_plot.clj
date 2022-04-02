@@ -1,5 +1,5 @@
 ^{:nextjournal.clerk/visibility #{:hide-ns}}
-(ns parens-for-plot
+(ns gigasquid.parens-for-plot
   (:require [libpython-clj2.require :refer [require-python]]
             [libpython-clj2.python  :as py]
             [tech.v3.datatype :as dtype]
@@ -153,6 +153,6 @@
 
 ;; PS All the code examples are here https://github.com/gigasquid/libpython-clj-examples
 
-(clerk/show! "src/main/parens_for_plot.clj")
+(clerk/show! "src/main/gigasquid/parens_for_plot.clj")
 
 ;
