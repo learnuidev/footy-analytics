@@ -1,5 +1,5 @@
 {:paths
- ["src/main" "open-data" "kaggle" "clojurefc"]
+ ["src/main" "open-data" "kaggle" "clojurefc" "resources"]
  :deps
  {org.clojure/clojure {:mvn/version "1.10.3"}
   ring/ring {:mvn/version "1.9.4"}
@@ -33,7 +33,10 @@
   ;; semantic web goodies and box/arrow graphs
   jackrusher/mundaneum               {:git/url "https://github.com/jackrusher/mundaneum/"
                                       :git/sha "84476918ee47b66a2d6128e1a90780e52fd2ae44"}
-  arrowic/arrowic                    {:mvn/version "0.1.1"}}
+  arrowic/arrowic                    {:mvn/version "0.1.1"}
+
+  ;; Tools NameSpace
+  org.clojure/tools.namespace {:mvn/version "1.2.0"}}
 
 
  :aliases

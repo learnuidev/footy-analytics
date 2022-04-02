@@ -6,6 +6,8 @@
             [clojure.java.io :as io]
             [nextjournal.clerk :as clerk]))
 
+(def weighted-sample-space {:heads 4 :tails 1})
+
 ; ## Computing Probabilities in Clojure
 
 ; **Reference**
@@ -138,7 +140,7 @@
 ;; Let’s execute `get-matching-event` on our four event conditions. Then we’ll output the four extracted events.
 
 (for [event-condition [head? tail? head-or-tail? neither?]]
- (get-matching-event sample-space event-condition))
+  (get-matching-event sample-space event-condition))
 
 ;; We’ve successfully extracted four events from sample_space.
 
@@ -265,6 +267,7 @@
         (for [child4 possible-children]
           [child1 child2 child3 child4])))))
 
+(comment)
 (doseq [child1 possible-children]
   (doseq [child2 possible-children]
     (doseq [child3 possible-children]
