@@ -7,7 +7,8 @@
 
 (comment
  (clerk/serve! {:browse? true})
- (clerk/show! "src/main/datascience_bookcamp/01_computing_probabilities.clj"))
+ (clerk/show! "src/main/datascience_bookcamp/01_computing_probabilities.clj")
+ (clerk/show! "src/main/datascience_bookcamp/02_matplotlib.clj"))
 
 (comment
  (clerk/show! "notebooks/semantic.clj")
