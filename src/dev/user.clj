@@ -5,7 +5,7 @@
             [statsbomb]
             [clerk]
             [python]
-            [bookcamp]))
+            [datascience-bookcamp.bookcamp]))
 
 ;; Part 1 - Data Exploring
 ;; ======= 360

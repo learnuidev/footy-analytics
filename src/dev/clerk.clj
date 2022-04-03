@@ -20,8 +20,8 @@
   (clerk/serve! {:browse? true})
   (clerk/table (find-all-competitions))
   (clerk/show! "notebooks/rule_30.clj")
-  (clerk/show! "notebooks/data_science.clj"))
-(clerk/show! "notebooks/clojurefc.clj")
+  (clerk/show! "notebooks/data_science.clj")
+  (clerk/show! "src/main/notebooks/clojurefc.clj"))
 
 
 (comment
