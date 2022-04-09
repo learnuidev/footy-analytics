@@ -48,7 +48,7 @@
 (comment
   (count (find-all-events {:match_id 69243})))
 
-;; 6. LeGts explore events a bit. tell me about the location attribute
+;; 6. Lets explore events a bit. tell me about the location attribute
 (comment
   (nth (find-all-events {:match_id 69243})
        10))
